@@ -1,0 +1,22 @@
+{
+  "name": "loveyouapp",
+  "version": "1.0.0",
+  "description": "Click here to show I love you — an animated love note",
+  "type": "module",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch",
+    "start": "npm run build:css && node server.js",
+    "dev": "npm run build:css && node --watch server.js"
+  },
+  "dependencies": {
+    "express": "4.21.2",
+    "gsap": "3.12.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
