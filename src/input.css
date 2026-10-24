@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .love-text {
+    @apply bg-clip-text text-transparent animate-shimmer;
+    background-image: linear-gradient(90deg, #ffd1dc, #ff4d8d, #ffb347, #ff4d8d, #ffd1dc);
+    background-size: 200% auto;
+    filter: drop-shadow(0 0 18px rgba(255, 77, 141, 0.55));
+  }
+  .love-text-gold {
+    @apply bg-clip-text text-transparent animate-shimmer;
+    background-image: linear-gradient(90deg, #fff1c1, #ffb347, #ff7aa2, #ffb347, #fff1c1);
+    background-size: 200% auto;
+    filter: drop-shadow(0 0 20px rgba(255, 179, 71, 0.5));
+  }
+  .word {
+    display: inline-block;
+    will-change: transform, opacity, filter;
+  }
+  .letter {
+    display: inline-block;
+    transform-style: preserve-3d;
+    will-change: transform, opacity, filter;
+  }
+}
