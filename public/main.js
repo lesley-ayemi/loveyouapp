@@ -42,8 +42,9 @@ const fx = { alpha: 1 };
 // ---------- Canvas sizing ----------
 function resize() {
   DPR = Math.min(window.devicePixelRatio || 1, 2);
-  W = window.innerWidth;
-  H = window.innerHeight;
+  // Match the canvas's real on-screen size so drawing is never stretched
+  W = canvas.clientWidth || window.innerWidth;
+  H = canvas.clientHeight || window.innerHeight;
   canvas.width = W * DPR;
   canvas.height = H * DPR;
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
@@ -51,6 +52,8 @@ function resize() {
   if (phase === 'name') assignNameTargets();
 }
 window.addEventListener('resize', resize);
+// Mobile browser bars sliding in and out change the visible height without a window resize
+window.visualViewport?.addEventListener('resize', resize);
 
 // ---------- Heart maths ----------
 // Classic parametric heart: x ∈ [-16, 16], y ∈ [-17, 12]
